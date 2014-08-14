@@ -1,0 +1,18 @@
+= simple_form_for @movie, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :title
+  = error_span(@movie[:title])
+  = f.input :description
+  = error_span(@movie[:description])
+  = f.input :release_date
+  = error_span(@movie[:release_date])
+  = f.input :studio_id
+  = error_span(@movie[:studio_id])
+  = f.input :franchise_id
+  = error_span(@movie[:franchise_id])
+  = f.input :production_cost
+  = error_span(@movie[:production_cost])
+  = f.input :profit
+  = error_span(@movie[:profit])
+  = f.button :submit, :class => 'btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), 
+    movies_path, :class => 'btn btn-default'                     

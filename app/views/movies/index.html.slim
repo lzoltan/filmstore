@@ -1,0 +1,39 @@
+- model_class = Movie
+.page-header
+  h1= t '.title', :default => model_class.model_name.human.pluralize.titleize
+  = link_to t('.new') , new_movie_path
+table.table.table-striped
+  thead
+    tr
+      th= model_class.human_attribute_name(:id)
+      th= model_class.human_attribute_name(:title)
+      th= model_class.human_attribute_name(:description)
+      th= model_class.human_attribute_name(:release_date)
+      th= model_class.human_attribute_name(:studio_id)
+      th= model_class.human_attribute_name(:franchise_id)
+      th= model_class.human_attribute_name(:production_cost)
+      th= model_class.human_attribute_name(:profit)
+      th= model_class.human_attribute_name(:created_at)
+      th= t '.actions', :default => t("helpers.actions")
+  tbody
+    - @movies.each do |movie|
+      tr
+        td= link_to movie.id, movie_path(movie)
+        td= movie.title
+        td= movie.description
+        td= movie.release_date
+        td= movie.studio_id
+        td= movie.franchise_id
+        td= movie.production_cost
+        td= movie.profit
+        td= l movie.created_at
+        td
+          = link_to t('.edit', :default => t("helpers.links.edit")),   
+            edit_movie_path(movie), :class => 'btn btn-default btn-xs' 
+          
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), 
+          movie_path(movie), 
+          method: :delete ,
+          class: 'btn btn-default btn-xs'                                                                                 
+         
+                                                                                 

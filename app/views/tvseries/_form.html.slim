@@ -1,0 +1,16 @@
+= simple_form_for @tvseries, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :name
+  = error_span(@tvseries[:name])
+  = f.input :description
+  = error_span(@tvseries[:description])
+  = f.input :release_date
+  = error_span(@tvseries[:release_date])
+  = f.input :status
+  = error_span(@tvseries[:status])
+  = f.input :franchise_id
+  = error_span(@tvseries[:franchise_id])
+  = f.input :studio_id
+  = error_span(@tvseries[:studio_id])
+  = f.button :submit, :class => 'btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), 
+    tvseries_index_path, :class => 'btn btn-default'             

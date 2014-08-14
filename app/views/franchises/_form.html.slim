@@ -1,0 +1,6 @@
+= simple_form_for @franchise, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :name
+  = error_span(@franchise[:name])
+  = f.button :submit, :class => 'btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), 
+    franchises_path, :class => 'btn btn-default'                 
